@@ -1,0 +1,44 @@
+% -*- root: ../eumw2018.tex -*-
+\begin{tikzpicture}
+	\begin{axis}[
+			ymax = 0,
+			ymin = -80,
+			xmin = 27,
+			xmax = 30,
+			ytick distance  = 10,
+			% xtick distance  = 0.5,
+			grid = major,
+			ylabel = {\scriptsize{Magnitude [dB]}},
+			xlabel = {\scriptsize{Frequency [GHz]}},
+			legend pos = south east,
+            legend style={font=\scriptsize},
+            legend cell align={left},
+            tick label style={font=\scriptsize},
+		]
+
+		% \addlegendimage{legend image with text=1 burst};
+		% \addlegendentry{ };
+		% \addlegendimage{empty legend};
+		% \addlegendentry{$f_i$ (\si{\mega\Hz})};
+
+		\pgfplotsset{cycle list name = linestyles*,cycle list shift=0}
+
+		\addplot+[
+			% color = red,
+			% only marks,
+			% mark size = 1.5,
+			% very thick
+			thick
+		] table [x index = 0, y index = 1] {figures/S11-return-loss.txt};
+		\addlegendentry{Return Loss}
+
+		\addplot+[thick] table [x index = 0, y index = 1] {figures/S21-insertion-loss.txt};
+		\addlegendentry{Insertion Loss}
+
+		\addplot+[thick] table [x index = 0, y index = 1] {figures/S31-coupling.txt};
+		\addlegendentry{Coupling Factor ($C$)}
+
+		\addplot+[thick] table [x index = 0, y index = 1] {figures/S41-isolation.txt};
+		\addlegendentry{Isolation Factor}
+	\end{axis}
+\end{tikzpicture}

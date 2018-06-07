@@ -1,0 +1,49 @@
+% -*- root: ../eumw2018.tex -*-
+\begin{tikzpicture}
+	\begin{axis}[
+			ymax = 27,
+			ymin = -50,
+			xmin = -90,
+			xmax = 90,
+			% ytick distance  = 10,
+			% xtick distance  = 0.5,
+			grid = major,
+			ylabel = {\scriptsize{Gain [dB]}},
+			xlabel = {\scriptsize{$\theta$ [\si{degree}]}},
+			legend pos = north east,
+            legend style={
+            	font=\scriptsize,
+            	% at={(1,1)}
+            },
+            legend cell align={left},
+            tick label style={font=\scriptsize},
+		]
+
+		% \addlegendimage{legend image with text=1 burst};
+		% \addlegendentry{ };
+		% \addlegendimage{empty legend};
+		% \addlegendentry{$f_i$ (\si{\mega\Hz})};
+
+		\pgfplotsset{cycle list name = linestyles*,cycle list shift=0}
+
+		\addplot+[
+			% color = red,
+			% only marks,
+			% mark size = 1.5,
+			% very thick
+			thick
+		] table [x index = 0, y index = 1] {figures/19giga-lhcp-phi0};
+		\addlegendentry{RX, $\phi = \SI{0}{\degree}$}
+
+		\addplot+[thick] table [x index = 0, y index = 1] {figures/19giga-lhcp-phi90};
+		\addlegendentry{RX, $\phi = \SI{90}{\degree}$}
+
+		\addplot+[thick] table [x index = 0, y index = 1] {figures/28giga-rhcp-phi0};
+		\addlegendentry{TX, $\phi = \SI{0}{\degree}$}
+		% \addlegendentry{Coupling Factor ($C$)}
+
+		\addplot+[thick] table [x index = 0, y index = 1] {figures/28giga-rhcp-phi90.tex};
+		\addlegendentry{TX, $\phi = \SI{90}{\degree}$}
+		% \addlegendentry{Isolation Factor}
+	\end{axis}
+\end{tikzpicture}
