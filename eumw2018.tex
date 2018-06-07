@@ -92,7 +92,7 @@ R.~Vincenti~Gatti\EuMWauthorrefmark{3}.
 % Andr{\'e} M. Amp{\`e}re\EuMWauthorrefmark{\#3}
 }% \IEEEauthorblockN Names
 \IEEEauthorblockA{%
-\EuMWauthorrefmark{1}PicoSaTs s.r.l., Italy;
+\EuMWauthorrefmark{1}PICOSATS s.r.l., Italy;
 \EuMWauthorrefmark{2}Department of Engineering and Architecture, University of Trieste, Italy;\\
 \EuMWauthorrefmark{3}University of Perugia, Department of Engineering, Italy;
 \EuMWauthorrefmark{4}ESA-ESTEC, The Netherlands;
@@ -119,7 +119,7 @@ Exploiting a data communication interface like the one proposed, the small satel
 \end{abstract}
 
 \begin{IEEEkeywords}
-satellite communicatios, Ka-band, nano-satellites, CubeSat, satellite systems.
+satellite communications, Ka-band, nano-satellites, CubeSat, satellite systems.
 \end{IEEEkeywords}
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -129,7 +129,7 @@ satellite communicatios, Ka-band, nano-satellites, CubeSat, satellite systems.
 \section{Introduction}
 An increasing number of space missions are based on small satellites located in Low Earth Orbit (LEO).
 The adoption of small satellites, complemented by an agile development methodology and the use of components inherited from the consumer electronic and automotive industry, has already resulted in successful In-Orbit Demonstrations and in the use of the first constellations for specific applications.
-So far, the majority of missions based on small satellites addresses Earth observation, weather, navigation, science, Global Navigation Satellite System Radio Occultation, Automatic Identification System (AIS) or Automatic Dependent Surveillance - Broadcast (ADS-B) applications \cite{Gregorio2016}.
+So far, the majority of missions based on small satellites addresses Earth observation, weather, navigation, science, Global Navigation Satellite System Radio Occultation, Automatic Identification System (AIS) or Automatic Dependent Surveillance -- Broadcast (ADS-B) applications \cite{Gregorio2016}.
 Recent developments suggest also that commercial telecommunication missions could be implemented using such small satellite constellations, too.
 For telecommunications, the major development focus is the improvement of the downlink data rate of small satellites, since this is anticipated to become a bottleneck in terms of operational requirements.
 Missions based on remote sensing or data relay will use payloads capable of generating large volumes of information and would thus impose heavy constraints on data transfer requirements.
@@ -154,8 +154,8 @@ They provide a good indicator of the industry interest for this band, and may se
 Future LEO missions will consist of multiple satellites organized in swarms and designed to accomplish a specific task.
 A first example is, in the context of a given service, to transfer data from one point on Earth to another.
 As a second use case, spacecrafts can be equipped with a payload specifically designed to collect a certain type of information form space, like AIS or ADS-B signalling, or even Earth observation.
-In a third scenario, they can be used to provide connectivity to M2M or IoT devices, in which the feeder link needs to support high data rates bi-directionally.
-What these three scenarios have in common is the need for a LEO trunking to cover the space to ground link (and viceversa).
+In a third scenario, they can be used to provide connectivity to M2M or IoT devices, in which the feeder link needs to support high data rates in a bidirectional fashion.
+What these three scenarios have in common is the need for a LEO trunking to cover the space to ground link (and vice versa).
 Furthermore, to satisfy all of the operational requirements, a full-duplex capability of the transceiver is required.
 % The first use case consists of multiple satellites which could be connected via InterSatellite Link (ISL), where data is transferred from one point on earth to the other. Therefore, two types of links are foreseen: one from ground to space (and back), and the other between satellites, the ISL.
 % In this use case, an half duplex mode is mandatory, and full duplex capability would be the best option.
@@ -169,12 +169,11 @@ Furthermore, to satisfy all of the operational requirements, a full-duplex capab
 % It is important to note here that half-duplex  or full-duplex operations require a ground station capable of uplink.
 The selected operational frequencies are \SIrange{27.5}{30}{\GHz} for the uplink and  \SIrange{17.8}{20.2}{\GHz} for the downlink, while the supported bandwidth will be of \SI{500}{\MHz}.
 
-
 \subsection{Link budget with Adaptive Code Modulation}
 The DVB-S2 standard supports several modulation schemes (modcods), and, for each one of them, different code rate rates.
 Among them, QPSK and 8PSK schemes require a single energy level, and are more preferable in terms of distortion prevention.
 % Modulations that allow a higher symbol rate, require higher input C/No ratio to ensure a fixed BER, as shown table 1.
-The channel bandwidth is set at \SI{50}{\MHz} so that, even with a pessimistic roll-off factor of \num{0.35}, a symbol rate of 40~Mbaud is guaranteed.
+The channel bandwidth is set at \SI{50}{\MHz} so that, even with a pessimistic roll-off factor of \num{0.35}, a symbol rate of \SI{40}{Mbaud} is guaranteed.
 Without entering too much into the details of the link budget, it is worth mentioning that DVB-S2(X) does support the Adaptive Coding and Modulation (ACM) technique and the Variable Code Modulation.
 The usage of ACM in a LEO setting would be very beneficial in terms of throughput, given that it allows to fully exploit the available link margin.
 With ACM, it is possible to select the modulation to be used, based on the received $C/N_0$ ratio, in order to optimize the data rate.
@@ -407,7 +406,7 @@ In addition, if $f_i$ is outside the channel bandwidth of the transmitted signal
 The antenna is a wide-band corrugated horn that operates in circular polarization: left-hand for the RX (27.5-30~GHz) and right-hand for the TX (17.8-20.2~GHz) channels respectively
 % (see Fig.~\ref{fig-antenna})
 .
-These two channels are separated via a dual-band polarizer and an orthomode transducer (OMT).
+These two channels are separated via a dual-band polarizer and an OrthoMode Transducer (OMT).
 The horn shape is designed and optimized accounting for: i) gain of 20~dBi minimum; ii) low side-lobes; iii) low cross-polarization (1~dB main beam); iv) volume and mass reduction.
 The horn profile is synthesized in order to minimize the spurious mode conversion and the depth of the grooves has been defined in order to optimize both the input matching and the pattern symmetry~\cite{Teniente2002}.
 A square corrugated waveguide with thick irises is the key design features of the dual-band polarizer~\cite{Liu2008}.
@@ -465,7 +464,7 @@ A noise BITE allows to check the receiver gain during operation.
 Exploiting a communication interface like this, new horizons could be opened for low-cost space missions.
 
 \section*{Acknowledgment}
-The authors acknowledge the European Space Agency for its technical support in this work within the contract no. 4000117224/16/UK/AD.
+The authors acknowledge the European Space Agency for supporting this work with the contract no. 4000117224/16/UK/AD and Analog Devices for its technical support.
 
 \bibliographystyle{IEEEtran}
 \bibliography{IEEEabrv,references}
