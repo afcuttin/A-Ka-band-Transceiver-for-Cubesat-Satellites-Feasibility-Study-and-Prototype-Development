@@ -1,10 +1,7 @@
-%
 % EuMW European Microwave Week Conference Sample Paper
 % Version 4 20171209 first release
 %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% We first setup margins for EuMW papers on A4 papers.  This is done
-% before the \documentclass is invoked.
+% We first setup margins for EuMW papers on A4 papers.  This is done before the \documentclass is invoked.
 %
 \newcommand{\CLASSINPUTtoptextmargin}{19mm}%
 \newcommand{\CLASSINPUTbottomtextmargin}{43mm}%
@@ -37,25 +34,22 @@
 \usepackage[binary-units,abbreviations]{siunitx}
 \DeclareSIUnit\Mbps{\mega\bit\per\second}
 \usepackage{array,booktabs}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Next we modify the standard IEEEtran.cls format to produce EuMW format by
-% redefining some macros.
+\usepackage[shortcuts]{glossaries}
+
+% Next we modify the standard IEEEtran.cls format to produce EuMW format by redefining some macros.
 \input{class-modifier}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% packages to be loaded last
 \usepackage[capitalize]{cleveref}
+
 \begin{document}
+\input{acronyms}
 % \listoftodos
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % We use \raggedbottom to avoid latex adding vertical space around headings.
-% This gives a better idea to the author about how much white space remains
-% as the page limit is approached.
+% This gives a better idea to the author about how much white space remains as the page limit is approached.
 \raggedbottom
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % PAPER TITLE AND AUTHOR BLOCK
 %
 % The paper title can use linebreaks \\ within to get better formatting if desired.
@@ -70,37 +64,35 @@
 % See below for examples of each of these.
 %
 \author{%
-\IEEEauthorblockN{%
-A.~Cuttin\EuMWauthorrefmark{1,2,*},
-F.~Alimenti\EuMWauthorrefmark{3},
-F.~Coromina\EuMWauthorrefmark{4},
-E.~De~Fazio\EuMWauthorrefmark{1},
-F.~Dogo\EuMWauthorrefmark{1},
-M.~Fragiacomo\EuMWauthorrefmark{1},
-P.~Gervasoni\EuMWauthorrefmark{5},
-G.~Gotti\EuMWauthorrefmark{1},\\
-A.~Gregorio\EuMWauthorrefmark{1,6},
-P.~Mezzanotte\EuMWauthorrefmark{3},
-E.~Pagana\EuMWauthorrefmark{1},
-V.~Palazzi\EuMWauthorrefmark{3},
-F.~Pelusi\EuMWauthorrefmark{1},
-F.~Pergolesi\EuMWauthorrefmark{1},
-P.~Petrini\EuMWauthorrefmark{7},\\
-L.~Roselli\EuMWauthorrefmark{3},
-R.~Vincenti~Gatti\EuMWauthorrefmark{3}.
-% Michael Faraday\EuMWauthorrefmark{*\#2},
-% Andr{\'e} M. Amp{\`e}re\EuMWauthorrefmark{\#3}
-}% \IEEEauthorblockN Names
-\IEEEauthorblockA{%
-\EuMWauthorrefmark{1}PICOSATS s.r.l., Italy;
-\EuMWauthorrefmark{2}Department of Engineering and Architecture, University of Trieste, Italy;\\
-\EuMWauthorrefmark{3}University of Perugia, Department of Engineering, Italy;
-\EuMWauthorrefmark{4}ESA-ESTEC, The Netherlands;
-\EuMWauthorrefmark{5}Analog Devices s.r.l., Italy;\\
-\EuMWauthorrefmark{6}Department of Physics, University of Trieste, Italy;
-\EuMWauthorrefmark{7}Politecnico di Torino, Italy;
-\EuMWauthorrefmark{*}Email: alessandro@picosats.eu.\\
-}% \IEEEauthorblockA Affils
+	\IEEEauthorblockN{%
+		A.~Cuttin\EuMWauthorrefmark{1,2,*},
+		F.~Alimenti\EuMWauthorrefmark{3},
+		F.~Coromina\EuMWauthorrefmark{4},
+		E.~De~Fazio\EuMWauthorrefmark{1},
+		F.~Dogo\EuMWauthorrefmark{1},
+		M.~Fragiacomo\EuMWauthorrefmark{1},
+		P.~Gervasoni\EuMWauthorrefmark{5},
+		G.~Gotti\EuMWauthorrefmark{1},\\
+		A.~Gregorio\EuMWauthorrefmark{1,6},
+		P.~Mezzanotte\EuMWauthorrefmark{3},
+		E.~Pagana\EuMWauthorrefmark{1},
+		V.~Palazzi\EuMWauthorrefmark{3},
+		F.~Pelusi\EuMWauthorrefmark{1},
+		F.~Pergolesi\EuMWauthorrefmark{1},
+		P.~Petrini\EuMWauthorrefmark{7},\\
+		L.~Roselli\EuMWauthorrefmark{3},
+		R.~Vincenti~Gatti\EuMWauthorrefmark{3}.
+	}% \IEEEauthorblockN Names
+	\IEEEauthorblockA{%
+		\EuMWauthorrefmark{1}PICOSATS s.r.l., Italy;
+		\EuMWauthorrefmark{2}Department of Engineering and Architecture, University of Trieste, Italy;\\
+		\EuMWauthorrefmark{3}University of Perugia, Department of Engineering, Italy;
+		\EuMWauthorrefmark{4}ESA-ESTEC, The Netherlands;
+		\EuMWauthorrefmark{5}Analog Devices s.r.l., Italy;\\
+		\EuMWauthorrefmark{6}Department of Physics, University of Trieste, Italy;
+		\EuMWauthorrefmark{7}Politecnico di Torino, Italy;
+		\EuMWauthorrefmark{*}Email: alessandro@picosats.eu.\\
+	}% \IEEEauthorblockA Affils
 }% \author
 %
 % Next we make the title/author block using the information defined above.
@@ -108,8 +100,7 @@ R.~Vincenti~Gatti\EuMWauthorrefmark{3}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ABSTRACT paragraph.
 %
-% As a general rule, do not put math, special symbols or citations
-% in the abstract paragraph.
+% As a general rule, do not put math, special symbols or citations in the abstract paragraph.
 %
 \begin{abstract}
 This paper describes the feasibility study of a Ka-band transceiver specifically designed for small satellite and CubeSat operations.
@@ -121,28 +112,24 @@ Exploiting a data communication interface like the one proposed, the small satel
 \begin{IEEEkeywords}
 satellite communications, Ka-band, nano-satellites, CubeSat, satellite systems.
 \end{IEEEkeywords}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% THE REST OF THE PAPER follows.
-%
 
 \section{Introduction}
-An increasing number of space missions are based on small satellites located in Low Earth Orbit (LEO).
-The adoption of small satellites, complemented by an agile development methodology and the use of components inherited from the consumer electronic and automotive industry, has already resulted in successful In-Orbit Demonstrations and in the use of the first constellations for specific applications.
-So far, the majority of missions based on small satellites addresses Earth observation, weather, navigation, science, Global Navigation Satellite System Radio Occultation, Automatic Identification System (AIS) or Automatic Dependent Surveillance -- Broadcast (ADS-B) applications \cite{Gregorio2016}.
+An increasing number of space missions are based on small satellites located in \ac{leo}.
+The adoption of small satellites, complemented by an agile development methodology and the use of components inherited from the consumer electronic and automotive industry, has already resulted in successful \glspl{iod} and in the use of the first constellations for specific applications.
+So far, the majority of missions based on small satellites addresses Earth observation, weather, navigation, science, Global Navigation Satellite System Radio Occultation (GNSS-RO), \ac{ais} or \ac{ads} applications \cite{Gregorio2016}.
 Recent developments suggest also that commercial telecommunication missions could be implemented using such small satellite constellations, too.
 For telecommunications, the major development focus is the improvement of the downlink data rate of small satellites, since this is anticipated to become a bottleneck in terms of operational requirements.
 Missions based on remote sensing or data relay will use payloads capable of generating large volumes of information and would thus impose heavy constraints on data transfer requirements.
-Such missions can benefit from the capability of a high data rate forward link and the possibilities enabled by a return link (e.g. mission reconfigurability).
+Such missions can benefit from the capability of a high data rate forward link and the possibilities enabled by a return link (for example, in terms of mission reconfigurability).
 In this contribution, the feasibility of a transceiver capable of both downlink and uplink will be discussed as a technology enabler for a fully networking mission.
 The main features of such a  transceiver are: operations in Ka-band, down/up-link up to \SI{100}{\Mbps}, less than 1.5U in volume (excluding the antenna), less than \SI{20}{\W} of power supply, support of DVB-S2(X) protocol, possible support of other space protocols.
 Together with the transceiver, the challenge of reducing the mass and volume of the antenna system, so that it can be easily fitted in a CubeSat form factor, is addressed.
 
-The original contribution is that the whole transceiver is designed adopting commercial-off-the-shelf (COTS) components, developed for the consumer market.
-In addition, a noise Built-In Test Equipment (BITE) is included in the receiver chain, this in order to verify the system gain during in-orbit operation.
+The original contribution is that the whole transceiver is designed adopting \ac{cots} components, developed for the consumer market.
+In addition, a noise \ac{bite} is included in the receiver chain, this in order to verify the system gain during in-orbit operation.
 % The  study of the above Ka-band transceiver, together with a preliminary design of a compatible antenna, will be presented as follows.
 % In \cref{sec:mis-sce} the mission scenarios that can benefit from the use of the proposed transceiver and an analysis of their link budget are presented, from which a preliminary set of requirements is inferred.
-% In \cref{sec:tra-arc} an overview of design of the transceiver is given, with a focus on the noise Built-In Test Equipment (BITE) integrated in the receiver and on the performance of the communication protocol in presence of interfering signals.
+% In \cref{sec:tra-arc} an overview of design of the transceiver is given, with a focus on the noise Built-In Test Equipment (\ac{bite}) integrated in the receiver and on the performance of the communication protocol in presence of interfering signals.
 % Then, in \cref{sec:ant-des}, a wide band antenna that simultaneously supports the up- and the down-link is presented.
 % The main results are finally summarized in \cref{sec:con}.
 
@@ -151,11 +138,11 @@ In addition, a noise Built-In Test Equipment (BITE) is included in the receiver 
 In recent years, numerous Ka-band filings for non-geostationary systems have been registered at the International Telecommunication Union.
 They provide a good indicator of the industry interest for this band, and may serve as a guideline to identify frequencies for which it is wise to develop new equipment \cite{ioag2016}.
 % The mission scenario is a key aspect for the design of the satellite data communication interface and the transceiver. To this purpose three use cases have been considered.
-Future LEO missions will consist of multiple satellites organized in swarms and designed to accomplish a specific task.
+Future \ac{leo} missions will consist of multiple satellites organized in swarms and designed to accomplish a specific task.
 A first example is, in the context of a given service, to transfer data from one point on Earth to another.
-As a second use case, spacecrafts can be equipped with a payload specifically designed to collect a certain type of information form space, like AIS or ADS-B signalling, or even Earth observation.
-In a third scenario, they can be used to provide connectivity to M2M or IoT devices, in which the feeder link needs to support high data rates in a bidirectional fashion.
-What these three scenarios have in common is the need for a LEO trunking to cover the space to ground link (and vice versa).
+As a second use case, spacecrafts can be equipped with a payload specifically designed to collect a certain type of information form space, like \ac{ais} or \ac{ads} signalling, or even Earth observation.
+In a third scenario, they can be used to provide connectivity to \ac{m2m} or \ac{iot} devices, in which the feeder link needs to support high data rates in a bidirectional fashion.
+What these three scenarios have in common is the need for a \ac{leo} trunking to cover the space to ground link (and vice versa).
 Furthermore, to satisfy all of the operational requirements, a full-duplex capability of the transceiver is required.
 % The first use case consists of multiple satellites which could be connected via InterSatellite Link (ISL), where data is transferred from one point on earth to the other. Therefore, two types of links are foreseen: one from ground to space (and back), and the other between satellites, the ISL.
 % In this use case, an half duplex mode is mandatory, and full duplex capability would be the best option.
@@ -167,23 +154,22 @@ Furthermore, to satisfy all of the operational requirements, a full-duplex capab
 % In this use case, half duplex mode is mandatory, and full duplex capability would be the best option (downlink time is maximized and ACM can be used).
 % From the descriptions of the above scenarios, the capability of operating in full-duplex mode represents the optimal solution, because it satisfies all the operational requirements from the point of view of the communication architecture.
 % It is important to note here that half-duplex  or full-duplex operations require a ground station capable of uplink.
-The selected operational frequencies are \SIrange{27.5}{30}{\GHz} for the uplink and  \SIrange{17.8}{20.2}{\GHz} for the downlink, while the supported bandwidth will be of \SI{500}{\MHz}.
+The selected operational frequencies are \SIrange{27.5}{30}{\GHz} for the uplink and  \SIrange{17.8}{20.2}{\GHz} for the downlink.
 
 \subsection{Link budget with Adaptive Code Modulation}
-The DVB-S2 standard supports several modulation schemes (modcods), and, for each one of them, different code rate rates.
+The DVB-S2(X) standard supports several \ac{modcod} schemes, and, for each one of them, different code rate rates.
 Among them, QPSK and 8PSK schemes require a single energy level, and are more preferable in terms of distortion prevention.
-% Modulations that allow a higher symbol rate, require higher input C/No ratio to ensure a fixed BER, as shown table 1.
-The channel bandwidth is set at \SI{50}{\MHz} so that, even with a pessimistic roll-off factor of \num{0.35}, a symbol rate of \SI{40}{Mbaud} is guaranteed.
-Without entering too much into the details of the link budget, it is worth mentioning that DVB-S2(X) does support the Adaptive Coding and Modulation (ACM) technique and the Variable Code Modulation.
-The usage of ACM in a LEO setting would be very beneficial in terms of throughput, given that it allows to fully exploit the available link margin.
-With ACM, it is possible to select the modulation to be used, based on the received $C/N_0$ ratio, in order to optimize the data rate.
+% Modulations that allow a higher symbol rate, require higher input C/No ratio to ensure a fixed \ac{ber}, as shown table 1.
+With a signal bandwidth of \SI{50}{\MHz}, even with a pessimistic roll-off factor of \num{0.35}, a symbol rate of \SI{40}{Mbaud} is guaranteed.
+Without entering too much into the details of the link budget, it is worth mentioning that DVB-S2(X) provides the \ac{vcm} and \ac{acm} modes.
+The usage of \ac{acm} in a \ac{leo} setting would be very beneficial in terms of throughput, given that it allows to fully exploit the available link margin by selecting the optimal \ac{modcod}, based on the received $C/N_0$ ratio, in order to maximize the data rate.
 However, this comes at the cost of having a return link, in order to close the control loop.
-A simulation with STK of a LEO satellite provided the $C/N_0$ values received from the satellite (uplink) every 20 seconds.
-For this simulation, the orbit has been set at 550 km, the satellite antenna gain at 23 dB in downlink and 20 dB in uplink, and the ground station G/T has been set to 35 dB/K (5.5 m diameter).
-EIRP is 69.90 dB for uplink, 21.56 dB for downlink.
-The link margin has been set to 1.5 dB.
+A simulation of a \ac{leo} satellite provided the $C/N_0$ values received from the satellite (uplink) at regular time intervals.
+For this simulation, the orbit has been set at \SI{550}{\km}, the satellite antenna gain at \SI{23}{dB} in downlink and \SI{20}{dB} in uplink, and the ground station $G/T$ has been set to \SI{35}{dB\per\kelvin}.
+The \ac{eirp} is set to \SI{69.9}{dBW} in uplink, and to \SI{21.56}{dBW} in downlink.
+The link margin has been set to \SI{1.5}{dB}.
 % Figure 1 shows the behavior of C/No, and threshold values for different modulations
-The analysis of the obtained results, reported in \cref{tab:acm-res}, shows the advantage of using ACM with respect to fixed modcods, because it yields the greatest amount of exchanged data, ensuring at the same time a $\text{BER}<10^{-5}$.
+The analysis of the obtained results, reported in \cref{tab:acm-res}, shows the advantage of using \ac{acm} with respect to fixed \glspl{modcod}, because it yields the greatest amount of exchanged data, ensuring at the same time a $\text{\ac{ber}}<10^{-5}$.
 \begin{table}[tb]
 	\centering
 	\caption{ACM performance with respect to fixed modcods}
@@ -215,37 +201,36 @@ The analysis of the obtained results, reported in \cref{tab:acm-res}, shows the 
 	\label{fig:blo-dia}
 \end{figure}
 \section{Transceiver architecture}
-%%%
 The block-diagram of the Ka-band transceiver is given in \cref{fig:blo-dia}.
 It is composed by a receiver and a transmitter section sharing a common antenna with polarization diversity.
-The Intermediate Frequency (IF) section of both receiver and transmitter provides (accepts) the I/Q samples of the signals to (from) a digital modem, which, in turn, implements in real time all the demodulation, decoding, error correction, and modulation functions of the DVB-2S protocol.
-The super-heterodyne receiver exploits a two-stage Low Noise Amplifier (LNA) followed by an image rejection filter: with this configuration the system noise figure is (almost) not affected by the filter losses.
+The \ac{if} section of both receiver and transmitter provides (accepts) the I/Q samples of the signals to (from) a digital modem, which, in turn, implements in real time all the demodulation, decoding, error correction, and modulation functions of the DVB-2S(X) protocol.
+The superheterodyne receiver exploits a two-stage \ac{lna} followed by an image rejection filter: with this configuration the system noise figure is (almost) not affected by the filter losses.
 %%%
 %%% Waveguide filter no more necessary (remove by the block diagram) ... embedded in the antenna system ...
 %%%
 %A waveguide filter before the LNA, instead, has the scope to reject the transmitted power. Such a task will be accomplished in conjunction with the antenna interface. To reduce the losses as much as possible, this filter will have an high-pass behaviour, and will be implemented with a waveguide section that is below cut-off at the TX center frequency (\SI{19}{\GHz}) and in propagation at the RX center frequency (\SI{29}{\GHz}).
-The transmitter chain is based on an integrated power amplifier with a compression point of 1.5~W.
+The transmitter chain is based on an integrated power amplifier with a compression point of \SI{1.5}{\watt}.
 The amplifier has an integrated power detector, so that power control loop can easily be implemented.
-The overall power consumption is around 4.5~W (PAE equal to about 30\%).
+The overall power consumption is around \SI{4.5}{\watt} (about 30\% power-added efficiency).
 %%%
 %The transmittersection is characterized by a saturated output power of 1.5~W and features a global power control loop (i.e. from the Ka-band output to the transmitter to its baseband input). To this purpose, a Power Amplifier (PA) with integrated power detector is selected. The overall power dissipation of the PA is around to 4.5~W since the efficiency of the selected Integrated Circuits (ICs) at the compression point is typically around 30\%.
 %%%
 %%% Verifica la parte sui mixer con Federico Pergolesi ... mi pare che il nuovo sistema utilizzi 2 PLL ...
 %%%
-Down- and up-conversions are implemented with a couple of twin stand-alone PLLs.
-The receiver uses a mixer with integrated frequency doubler for the LO signal ($13 \times 2=26\,\mbox{GHz}$) and has an IF frequency of 3~GHz.
-The transmitter, instead, has an IF frequency of 6 GHz and a mixer operating at the fundamental frequency.
-Intermediate frequencies can be selected individually up to 6~GHz, thanks to the capabilities of the AD9364 integrated transceiver from Analog Devices \cite{analog}.
+Down- and up-conversions are implemented with a couple of twin stand-alone \glspl{pll}.
+The receiver uses a mixer with integrated frequency doubler for the LO signal ($13 \times 2=\SI{26}{GHz}$) and has an \ac{if} frequency of \SI{3}{GHz}.
+The transmitter, instead, has an \ac{if} frequency of \SI{6}{GHz} and a mixer operating at the fundamental frequency.
+Intermediate frequencies can be selected individually up to \SI{6}{GHz}, thanks to the capabilities of the AD9364 integrated transceiver from Analog Devices \cite{analog}.
 This integrated transceiver allows conversion to baseband, AD/DA conversion and data interface.
-Its channel bandwidth is of 56~MHz, compatible with the one selected in the link budget.
+Its maximum channel bandwidth is of \SI{56}{MHz}, compatible with the one selected in the link budget.
 Should the system require a larger channel bandwidth, the the AD9371 can be adopted.
-The digital stream from (to) the AD9364 is then connected with the DVB-S2 modem board.
+The digital stream from (to) the AD9364 is then connected with the DVB-S2(X) modem board.
 Redundancy systems, internal interfaces/bus and power managements are included in the design, but not shown in the figure for the sake of clarity.
 %%%
 % In case of FPGA design, the modem board could also integrate the 6 GHz IF stage (AD9364), in such a way as to have a complete digital back-end. This solution has the advantage to minimize the length of the serial connections between the AD9364 and the FPGA itself, thus maximizing speed and reducing electromagnetic compatibility issues. The external MCU for the transceiver control can also be integrated in the FPGA. The preliminary mechanical concept of the ka-band transceiver is depicted in Figure 2.
 %%%
-A preliminary set of ICs and devices suitable for the proposed frequencies has already been identified, based on COTS electronic components.
-A secondary target of the present research, indeed, is to demonstrate up to what extent commercial electronics can fly successfully in a LEO satellite.
+A preliminary set of components suitable for the proposed frequencies has already been identified, based on \ac{cots} electronic components.
+A secondary target of the present research, indeed, is to demonstrate up to what extent commercial electronics can successfully fly on a \ac{leo} satellite.
 Of particular relevance to this purpose are the families of high-reliability devices nowadays developed for the automotive market.
 
 % The block-diagram of the Ka-band transceiver is given in \cref{fig:blo-dia}.
@@ -274,8 +259,8 @@ Of particular relevance to this purpose are the families of high-reliability dev
 % % The external MCU for the transceiver control can also be integrated in the FPGA.
 % % The preliminary mechanical concept of the ka-band transceiver is depicted in Figure 2.
 
-% A preliminary set of ICs and devices suitable for the proposed frequencies has already been identified, based on commercial, off-the-shelf (COTS) electronic components.
-% A secondary target of the present research, indeed, is to demonstrate up to what an extent commercial electronics can fly successfully in a LEO satellite.
+% A preliminary set of ICs and devices suitable for the proposed frequencies has already been identified, based on commercial, off-the-shelf (\ac{cots}) electronic components.
+% A secondary target of the present research, indeed, is to demonstrate up to what an extent commercial electronics can fly successfully in a \ac{leo} satellite.
 % Of particular relevance to this purpose are the families of high-reliability devices nowadays developed for the automotive market.
 
 % % In order to assess the originality of the above architectural design, a brief survey of the Ka-band transceiver state-of-the-art for is now presented.
@@ -309,14 +294,14 @@ Of particular relevance to this purpose are the families of high-reliability dev
 	\subfloat[]{\includegraphics[width=.31\columnwidth,valign=c]{figures/fig-coupler}\label{fig:bite-pro-geo}}
 	\caption{Noise BITE block diagram \protect\subref{fig:bite-blo-dia} and geometry of the directional coupler adopted for the noise injection \protect\subref{fig:bite-pro-geo}.
 	The directional coupler is designed in SIW technology in order to avoid shields and for superior stability.
-	The substrate has a thickness $h=\SI{0.5}{\milli\metre}$ and exploits the Roger 4350B material ($\epsilon_{r}=3.48$, $\tan \delta \simeq 0.004$).
+	The substrate has a thickness $h=\SI{0.5}{\milli\metre}$ and exploits the Rogers~4350B material ($\epsilon_{r}=3.48$, $\tan \delta \simeq 0.004$).
 	The active directional coupler length is $l=\SI{15.5}{\mm}$ (uniform waveguide sections included) whereas the waveguide width is $w=\SI{4.3}{\mm}$.
 	The via-hole diameter is $d=\SI{0.5}{\mm}$. }
 	\label{fig-nbite-geo}
 \end{figure}
 
-An original feature of the receiver (RX) sub-system is the possibility to be verified and, possibly, calibrated also during in-orbit operation.
-To this purpose a noise BITE is adopted, see \cref{fig-nbite-geo}\subref{fig:bite-blo-dia}.
+An original feature of the receiver subsystem is the possibility to be verified and, possibly, calibrated also during in-orbit operation.
+To this purpose a noise \ac{bite} is adopted, see \cref{fig-nbite-geo}\subref{fig:bite-blo-dia}.
 It is composed by a solid-state avalanche microwave noise source and by a directional coupler connected to the receiver input.
 The noise source is controlled by the transceiver CPU.
 When the noise source is switched on (high temperature state), a known amount of noise power is injected into the receiver and the corresponding output power, $N_\text{on}$, is measured.
@@ -324,16 +309,16 @@ The latter measurement can be implemented in several ways, i.e. by exploiting a 
 Similarly, a receiver output power $N_\text{off}$ is measured when the noise source is switched off (low temperature state).
 According to the Y-factor method, \cite{agilent_AN57-1, Alimenti2008}, the overall receiver gain $G_{RX}$ can be evaluated as:
 \begin{equation}
-   G_{RX} = \frac{N_\text{on} - N_\text{off}}{k_{B}\,C\,\mbox{ENR}\,T_{0}\,B}
+   G_{RX} = \frac{N_\text{on} - N_\text{off}}{k_{B}\,C\,\textrm{ENR}\,T_{0}\,B}
    \label{eqn_RX_gain}
 \end{equation}
-where $k_{B}$ is the Boltzmann constant, $C$ is the coupling factor of the directional coupler, ENR is the Excess Noise Ratio of the avalanche noise source, $T_{0}=290\,\mbox{K}$ is the IEEE standard temperature and $B$ is the bandwidth of the receiver stages before the power detector.
+where $k_{B}$ is the Boltzmann constant, $C$ is the coupling factor of the directional coupler, ENR is the Excess Noise Ratio of the avalanche noise source, $T_{0}=\SI{290}{\kelvin}$ is the IEEE standard temperature and $B$ is the bandwidth of the receiver stages before the power detector.
 The main advantage of the described procedure is that the gain is determined only exploiting the avalanche noise source: in a laboratory environment the receiver input needs to be simply terminated on a matched load.
 During in-orbit operation, instead, the above experiment should be carried out when no signal is received from a ground station.
 The \SI{30}{\GHz} receiver antenna (pointed toward the Earth) will behave as a matched load with a physical temperature in the range of \SIrange{150}{300}{\kelvin} (antenna noise temperature).
-The noise BITE is designed assuming an injected noise temperature $T_i \simeq C\,\text{ENR}\,T_{0}$ of the same order of magnitude of the antenna noise temperature.
+The noise \ac{bite} is designed assuming an injected noise temperature $T_i \simeq C\,\text{ENR}\,T_{0}$ of the same order of magnitude of the antenna noise temperature.
 This in order to avoid the receiver saturation during the noise injection phase, and to operate in the linear region of the diode detector (used to measure the output power).
-Considering that a 30~GHz avalanche diode has a typical ENR of 20 dB, \cite{noisecom_NC407B,Alimenti2016}, a weak coupling factor $C \simeq -20\,\mbox{dB}$ is needed.
+Considering that a \SI{30}{GHz} avalanche diode has a typical ENR of \SI{20}{dB}, \cite{noisecom_NC407B,Alimenti2016}, a weak coupling factor $C \simeq \SI{-20}{dB}$ is needed.
 \begin{figure}[tb]
 	\centering
 	\includegraphics[width=\columnwidth,height=.6\columnwidth]{figures/bite-s-pars}
@@ -341,14 +326,14 @@ Considering that a 30~GHz avalanche diode has a typical ENR of 20 dB, \cite{nois
 	\caption{
 		Scattering parameters of the SIW directional coupler.
 		The full-wave simulations have been carried-out with CST.
-		A quite flat coupling $C=-21\,\mbox{dB}$ is obtained at 27.75~GHz (center frequency) with only $1.2\,\mbox{dB}$ roll-off from 27.5 to 30~GHz (receiver full band).
+		A quite flat coupling $C=\SI{-21}{dB}$ is obtained at \SI{27.75}{GHz} (center frequency) with only \SI{1.2}{dB} roll-off from 27.5 to \SI{30}{GHz} (receiver full band).
 	}
 	\label{fig-nbite-res}
 \end{figure}
 The directional coupler is shown in Fig.~\ref{fig-nbite-geo}(b).
 It is implemented in Substrate Integrated Waveguide (SIW) technology~\cite{Doghri2015}; this in order to avoid shields and for superior stability.
 A 5-holes side coupling geometry is selected in order to guarantee a wide-band behavior.
-The design has been carried-out with CST and the device is optimized paying a particular attention to the insertion losses and to the response flatness.
+The design and the optimization of the device focused on insertion losses and to the response flatness.
 Four coaxial adapters have been considered in the simulations: this only to be consistent with the experimental characterization.
 In the final version the adapters will be removed and the coupler will be completely integrated in the receiver PCB.
 The simulation results are shown in Fig.~\ref{fig-nbite-res} for the overall structure (directional coupler with coaxial adapters).
@@ -357,16 +342,16 @@ This means that the injected noise temperature will be $T_i=\SI{228}{\kelvin}$ f
 The simulated insertion loss is equal to \SI{1.8}{\dB}, i.e. less than \SI{1}{\dB} without coaxial adapter.
 
 \subsection{Co-channel and adjacent channel interference measurements}
-A number of measurements has been carried out with the purpose of assessing the BER at the receiver end in presence of a signal interfering on the same channel, or on the adjacent channel.
+A number of measurements has been carried out with the purpose of assessing the \ac{ber} at the receiver end in presence of a signal interfering on the same channel, or on the adjacent channel.
 A range of $C/I$ values, and the presence or absence of noise have been considered.
-The test set-up is shown in \cref{fig:interference-dektec-setup}, featuring a Rohde\&{}Schwarz SFC-U modulation generator, to generate the DVB-S2 signal at the center frequency $f_c = \SI{1950}{\MHz}$, an HP8780A signal generator, to generate the interfering signal at the frequency $f_i$, and a DTM-3237 Dektec receiver, compatible with the DVB-S2 protocol.
+The test set-up is shown in \cref{fig:interference-dektec-setup}, featuring modulation generator, to generate the DVB-S2 signal at the center frequency $f_c = \SI{1950}{\MHz}$, a signal generator, to generate the interfering signal at the frequency $f_i$, and a DVB-S2 receiver.
 For each $f_i$, the power level of the interferer was decreased until a correct reception (lock of the receiver) was achieved.
-On of the output parameters of the Dektec receiver is $\text{BER}^\dagger$, that is the BER achievable without using the channel coding (consisting of nested LDPC--BCH coding).
-The readings of $\text{BER}^\dagger$ were recorded for different values of $C/I$.
+One of the output parameters of the DVB-S2 receiver is $\text{\ac{ber}}^\dagger$, that is the \ac{ber} achievable without using the \ac{fec}.
+The readings of $\text{\ac{ber}}^\dagger$ were recorded for different values of $C/I$.
 Results can be summarized as follows.
 The presence of an interferer in the proximity of, or at the center-bandwidth frequency severely affects the reception capability, thus requiring a $C/I \geqslant \SI{6}{\deci\bel}$ to ensure the reception of the transmitted signal (as reported in \cref{fig:ci-meas}), while an offset of at least \SI{10}{\mega\Hz} allows reception at significantly lower $C/I$ levels.
 Namely, at $\pm\SI{10}{\MHz}$ from the channel center frequency (\SI{1950}{\MHz}) $C/I \geqslant \SI{-18}{\dB}$ is required, while at $\pm\SI{10}{\MHz}$ this level decreases to \SI{-20}{\dB}.
-Nonetheless, a remarkable resistance of the DVB-S2 protocol to interference has been recorded: if the interferer is applied after the signal has been locked, even if the $C/I$ degrades significantly, reception is still possible, and the apparently unsatisfactory $\text{BER}^\dagger$ values (in the order of $10^{-2}$) are well counterweighted by the harsh condition of the interference.
+Nonetheless, a remarkable resistance of the DVB-S2 protocol to interference has been recorded: if the interferer is applied after the signal has been locked, even if the $C/I$ degrades significantly, reception is still possible, and the apparently unsatisfactory $\text{\ac{ber}}^\dagger$ values (in the order of $10^{-2}$) are well counterweighted by the harsh condition of the interference.
 Furthermore, it should be noted that, after the channel decoding, the communication is error-free, whichever the value considered in \cref{fig:ci-meas}, provided that the transmitted signal is locked by the receiver.
 In addition, if $f_i$ is outside the channel bandwidth of the transmitted signal, the reception is error-free for any $C/I$ attainable with the proposed setup.
 \begin{figure}[tb]
@@ -376,7 +361,7 @@ In addition, if $f_i$ is outside the channel bandwidth of the transmitted signal
 	\label{fig:interference-dektec-setup}
 	\vspace{\baselineskip}
 	\includegraphics[width=\columnwidth,height=.7\columnwidth]{figures/ber-vs-ci}
-	\caption{$C/I$ measurements. For $f_i = \SI{1950}{\mega\Hz}$ and $C/I = [0,6]~\si{\deci\bel}$, $\text{BER}^\dagger = 0$ (error-free), and the values are not plotted.}
+	\caption{$C/I$ measurements. For $f_i = \SI{1950}{\mega\Hz}$ and $C/I = [0,6]~\si{\deci\bel}$, $\text{\ac{ber}}^\dagger = 0$ (error-free), and the values are not plotted.}
 	\label{fig:ci-meas}
 \end{figure}
 % \begin{table}[tb]
@@ -403,19 +388,18 @@ In addition, if $f_i$ is outside the channel bandwidth of the transmitted signal
 
 \section{Antenna concept}
 \label{sec:ant-des}
-The antenna is a wide-band corrugated horn that operates in circular polarization: left-hand for the RX (27.5-30~GHz) and right-hand for the TX (17.8-20.2~GHz) channels respectively
+The antenna is a wide-band corrugated horn that operates in circular polarization: left-hand for the uplink and right-hand for the downlink respectively
 % (see Fig.~\ref{fig-antenna})
 .
-These two channels are separated via a dual-band polarizer and an OrthoMode Transducer (OMT).
-The horn shape is designed and optimized accounting for: i) gain of 20~dBi minimum; ii) low side-lobes; iii) low cross-polarization (1~dB main beam); iv) volume and mass reduction.
-The horn profile is synthesized in order to minimize the spurious mode conversion and the depth of the grooves has been defined in order to optimize both the input matching and the pattern symmetry~\cite{Teniente2002}.
-A square corrugated waveguide with thick irises is the key design features of the dual-band polarizer~\cite{Liu2008}.
-The polarizer is then connected to the OMTs by means of a diamond transition, which rotates the irises of 45~deg. with respect to the ports of the OMT.
-In the present design the OMT act also as TX/RX diplexer.
-It uses a dual junction configuration in order to optimize the input matching and the port-to-port isolation~\cite{DArcangelo2009}.
-The isolation is further increased exploiting the cutoff of the circular waveguide in the TX band, while the isolation between RX and TX bands is obtained by means of a corrugated filter placed into the receiving branch.
+These two channels are separated via a dual-band polarizer and an \ac{omt}.
+The horn shape is designed and optimized accounting for: minimum gain of \SI{20}{dBi}, low side lobe levels, low cross-polarization (\SI{1}{dB} main beam), and volume and mass reduction.
+The horn profile is synthesized in order to minimize the spurious mode conversion and the depth of the grooves has been defined in order to optimize both the input matching and the pattern symmetry \cite{Teniente2002}.
+A square corrugated waveguide with thick irises is the key design features of the dual-band polarizer \cite{Liu2008}.
+The polarizer is then connected to the \ac{omt} by means of a diamond transition, which rotates the irises of \SI{45}{\degree} with respect to the ports of the \ac{omt}, that acts also as an uplink/downlink diplexer.
+It uses a dual junction configuration in order to optimize the input matching and the port-to-port isolation \cite{DArcangelo2009}.
+The isolation is further increased exploiting the cutoff of the circular waveguide in the downlink band, while the isolation between up- and downlink bands is obtained by means of a corrugated filter placed into the receiving branch.
 The proposed antenna, besides consisting of waveguide elements, is proving to be a promising approach, as it requires a single horn only.
-Other techniques can also be considered in terms of compactness and manufacturability, as proposed in \cite{Buttazzoni2017}.
+Other techniques can also be considered in terms of compactness and weight reduction, as proposed in \cite{Buttazzoni2017}.
 
 % The antenna system depicted in figure 2 shows two branches, one for the uplink (Tx, at 27.5-30 GHz) and the other for the downlink (Rx, at 17.8-20.2 GHz) in circular polarization, left hand and right hand respectively.
 % The satellite link is achieved by a single wide band corrugated horn connected to a dual band polarizer and two orthomode transducers (OMTs).
@@ -447,7 +431,7 @@ Other techniques can also be considered in terms of compactness and manufacturab
 % The output ports match with the Tx and Rx branches of the transceiver and the overall dimensions of the OMT must satisfy the mechanical constraints of the satellite module.
 \begin{figure}[tb]
 	\centering
-	\includegraphics[width=\columnwidth,height=.7\columnwidth]{figures/horn-rad-pat}
+	\includegraphics[width=\columnwidth,height=.6\columnwidth]{figures/horn-rad-pat}
 	% \includegraphics[width=\columnwidth]{figures/fig-coupler-spar}
 	\caption{Horn antenna radiation patterns at the center frequencies.}
 	\label{fig:rad-pat}
@@ -457,14 +441,14 @@ Other techniques can also be considered in terms of compactness and manufacturab
 \label{sec:con}
 This paper shows that a Ka-band transceiver
  % (uplink 29~GHz, downlink 19~GHz)
-for CubeSats can be implemented using COTS components.
-It is capable of 100~Mbps data rate with a volume of 1.5~U and consumption of 20~W.
-The transmitted power is 1.5~W and a 20~dBi, dual-band antenna (corrugated horn, polarizer and OMT) is adopted.
-A noise BITE allows to check the receiver gain during operation.
+for CubeSats can be implemented using \ac{cots} components.
+It is capable of \SI{100}{Mbps} data rate with a volume of 1.5U and consumption of \SI{20}{W}.
+The transmitted power is \SI{1.5}{W} and a \SI{20}{dBi}, dual-band antenna (corrugated horn, polarizer and OMT) is adopted.
+A noise \ac{bite} allows to check the receiver gain during operation.
 Exploiting a communication interface like this, new horizons could be opened for low-cost space missions.
 
 \section*{Acknowledgment}
-The authors acknowledge the European Space Agency for supporting this work with the contract no. 4000117224/16/UK/AD and Analog Devices for its technical support.
+The authors acknowledge the European Space Agency for supporting this work with the contract 4000117224/16/UK/AD and Analog Devices for its technical support.
 
 \bibliographystyle{IEEEtran}
 \bibliography{IEEEabrv,references}
